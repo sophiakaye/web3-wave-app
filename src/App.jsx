@@ -172,6 +172,7 @@ const App = () => {
           message: message,
         },
       ]);
+      getTotalWaves();
     };
 
     if (window.ethereum) {
@@ -180,9 +181,6 @@ const App = () => {
   
       wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);
       wavePortalContract.on("NewWave", onNewWave);
-      getTotalWaves();
-
-      //setTotalWaves((prev) => prev + 1);
       
     }
     
